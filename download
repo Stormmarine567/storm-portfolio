@@ -1,8 +1,0 @@
-node_modules/
-.env
-.env.local
-.data/
-.vercel/
-.netlify/
-.DS_Store
-assets/uploads/
