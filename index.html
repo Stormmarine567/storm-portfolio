@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ikpotokin Miracle | Full Stack Developer</title>
-  <meta name="description" content="Ikpotokin Miracle is a Full Stack Developer building responsive websites and web applications with WordPress, HTML, CSS, JavaScript, PHP and MySQL.">
+  <meta name="description" content="Full Stack Developer building responsive websites and web applications.">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0a'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Arial' font-weight='900' font-size='20' fill='%23fbbd23'%3ES%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,22 +29,32 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Home">
-        <span class="brand-role" data-bind="title">FULL STACK DEVELOPER</span>
         <span class="brand-logo"><span data-bind="brand_text">STORM</span><i>.</i></span>
       </a>
       <nav class="main-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-t="nav_about">About</a>
+        <a href="#work" data-t="nav_work">Work</a>
+        <a href="#skills" data-t="nav_skills">Skills</a>
+        <a href="#contact" data-t="nav_contact">Contact</a>
       </nav>
       <div class="header-actions">
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme"></button>
-        <span class="status"><i></i>Open to work</span>
-        <a class="btn btn-sm" href="/assets/resume.pdf" download data-icon="download">Download CV</a>
+        <span class="status" id="statusBadge"><i></i><span data-t="status_text">Open to work</span></span>
+        <a class="btn btn-sm cv-btn" href="/assets/resume.pdf" data-resume download data-icon="download"><span data-t="cv_button">Download CV</span></a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"></button>
       </div>
     </div>
   </header>
+
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <nav aria-label="Mobile">
+      <a href="#about" data-t="nav_about">About</a>
+      <a href="#work" data-t="nav_work">Work</a>
+      <a href="#skills" data-t="nav_skills">Skills</a>
+      <a href="#contact" data-t="nav_contact">Contact</a>
+    </nav>
+    <a class="btn btn-lg" href="/assets/resume.pdf" data-resume download data-icon="download"><span data-t="cv_button">Download CV</span></a>
+  </div>
 
   <main>
     <!-- HERO -->
@@ -52,15 +62,16 @@
       <div class="hero-bg" id="heroBg"></div>
       <div class="hero-shade"></div>
       <div class="container hero-inner">
+        <p class="hero-kicker" data-bind="title">FULL STACK DEVELOPER</p>
         <h1 class="hero-name" id="heroName"><span>Ikpotokin</span><span>Miracle</span></h1>
         <ul class="hero-meta" id="heroMeta"></ul>
-        <a class="btn btn-lg" href="/assets/resume.pdf" download data-icon="download">Download Résumé</a>
-        <a class="scroll-hint" href="#about"><span class="scroll-circle" data-icon="arrowDown"></span>Scroll to explore</a>
+        <a class="btn btn-lg" href="/assets/resume.pdf" data-resume download data-icon="download"><span data-t="hero_button">Download Résumé</span></a>
+        <a class="scroll-hint" href="#about"><span class="scroll-circle" data-icon="arrowDown"></span><span data-t="scroll_text">Scroll to explore</span></a>
       </div>
     </section>
 
     <!-- STATS -->
-    <section class="stats-wrap">
+    <section class="stats-wrap" id="statsWrap">
       <div class="container">
         <div class="stats" id="stats"></div>
       </div>
@@ -69,7 +80,7 @@
     <!-- ABOUT -->
     <section class="section section-about" id="about">
       <div class="container sec-grid">
-        <h2 class="sec-label">About me</h2>
+        <h2 class="sec-label" data-t="label_about">About me</h2>
         <div class="about-grid">
           <div class="about-text" id="aboutText"></div>
           <div class="about-media">
@@ -83,15 +94,10 @@
     <!-- FEATURED WORK -->
     <section class="section" id="featured">
       <div class="container sec-grid">
-        <h2 class="sec-label">Featured work</h2>
+        <h2 class="sec-label" data-t="label_featured">Featured work</h2>
         <div>
-          <h3 class="sec-title">Selected projects I'm<br><em>most proud of.</em></h3>
-          <div class="filters" id="filters" role="tablist">
-            <button type="button" class="filter is-active" data-filter="all">All</button>
-            <button type="button" class="filter" data-filter="Frontend">Frontend</button>
-            <button type="button" class="filter" data-filter="WordPress">WordPress</button>
-            <button type="button" class="filter" data-filter="Fullstack">Fullstack</button>
-          </div>
+          <h3 class="sec-title" data-title="featured_title">Selected projects I'm<br><em>most proud of.</em></h3>
+          <div class="filters" id="filters" role="tablist"></div>
         </div>
       </div>
       <div class="container featured-wrap">
@@ -102,9 +108,9 @@
     <!-- WORK HISTORY -->
     <section class="section" id="work">
       <div class="container sec-grid">
-        <h2 class="sec-label sec-label-soft">Work history</h2>
+        <h2 class="sec-label sec-label-soft" data-t="label_work">Work history</h2>
         <div>
-          <h3 class="sec-title">Building products people<br><em>love to use.</em></h3>
+          <h3 class="sec-title" data-title="work_title">Building products people<br><em>love to use.</em></h3>
         </div>
       </div>
       <div class="container roles" id="roles"></div>
@@ -113,19 +119,19 @@
     <!-- EXPERTISE -->
     <section class="section" id="skills">
       <div class="container sec-grid">
-        <h2 class="sec-label">Expertise</h2>
+        <h2 class="sec-label" data-t="label_skills">Expertise</h2>
         <div>
-          <h3 class="sec-title">Full-stack, from<br><em>pixel to production.</em></h3>
+          <h3 class="sec-title" data-title="skills_title">Full-stack, from<br><em>pixel to production.</em></h3>
           <div class="skill-block">
-            <h4 class="mini-label">Core skills</h4>
+            <h4 class="mini-label" data-t="core_skills_label">Core skills</h4>
             <ul class="core-skills" id="coreSkills"></ul>
           </div>
           <div class="skill-block">
-            <h4 class="mini-label">Tools &amp; technologies</h4>
+            <h4 class="mini-label" data-t="tools_label">Tools &amp; technologies</h4>
             <div class="tools" id="tools"></div>
           </div>
           <div class="skill-block">
-            <h4 class="mini-label">Languages</h4>
+            <h4 class="mini-label" data-t="languages_label">Languages</h4>
             <div class="langs" id="languages"></div>
           </div>
         </div>
@@ -135,7 +141,7 @@
     <!-- EDUCATION -->
     <section class="section" id="education">
       <div class="container sec-grid">
-        <h2 class="sec-label">Education</h2>
+        <h2 class="sec-label" data-t="label_education">Education</h2>
         <div class="edu-list" id="education-list"></div>
       </div>
     </section>
@@ -143,19 +149,19 @@
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="container sec-grid">
-        <h2 class="sec-label">Contact</h2>
+        <h2 class="sec-label" data-t="label_contact">Contact</h2>
         <div>
-          <h3 class="sec-title">Let's work<br><em>together.</em></h3>
-          <p class="contact-intro">Have an exciting project or opportunity? Drop me a message and I'll get back to you within 24 hours.</p>
+          <h3 class="sec-title" data-title="contact_title">Let's work<br><em>together.</em></h3>
+          <p class="contact-intro" data-t="contact_intro">Have an exciting project or opportunity? Drop me a message and I'll get back to you within 24 hours.</p>
           <form class="contact-form" id="contactForm" novalidate>
-            <label for="cName">Name</label>
-            <input id="cName" name="name" type="text" placeholder="Jane Smith" autocomplete="name" maxlength="100" required>
-            <label for="cEmail">Email</label>
-            <input id="cEmail" name="email" type="email" placeholder="jane@company.com" autocomplete="email" maxlength="160" required>
-            <label for="cMessage">Message</label>
-            <textarea id="cMessage" name="message" placeholder="Tell me about your project or opportunity..." maxlength="3000" required></textarea>
+            <label for="cName" data-t="form_name_label">Name</label>
+            <input id="cName" name="name" type="text" placeholder="Jane Smith" data-ph="form_name_ph" autocomplete="name" maxlength="100" required>
+            <label for="cEmail" data-t="form_email_label">Email</label>
+            <input id="cEmail" name="email" type="email" placeholder="jane@company.com" data-ph="form_email_ph" autocomplete="email" maxlength="160" required>
+            <label for="cMessage" data-t="form_message_label">Message</label>
+            <textarea id="cMessage" name="message" placeholder="Tell me about your project or opportunity..." data-ph="form_message_ph" maxlength="3000" required></textarea>
             <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button class="btn btn-form" type="submit" data-icon="send">Send Message</button>
+            <button class="btn btn-form" type="submit" data-icon="send"><span data-t="form_button">Send Message</span></button>
             <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -165,9 +171,9 @@
     <!-- TESTIMONIALS -->
     <section class="section section-last" id="testimonials">
       <div class="container sec-grid">
-        <h2 class="sec-label">Testimonials</h2>
+        <h2 class="sec-label" data-t="label_testimonials">Testimonials</h2>
         <div>
-          <h3 class="sec-title">What people I've worked<br><em>with have to say.</em></h3>
+          <h3 class="sec-title" data-title="testimonials_title">What people I've worked<br><em>with have to say.</em></h3>
         </div>
       </div>
       <div class="container">
