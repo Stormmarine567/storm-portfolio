@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index?__path=:path*" },
+    { "source": "/projects/:slug", "destination": "/project.html" },
+    { "source": "/admin", "destination": "/admin/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }]
+    }
+  ]
+}
